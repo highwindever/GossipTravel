@@ -38,10 +38,10 @@ public class GossipInputFormatter {
 				String victimName = victimCell.getStringCellValue();
 				JSONObject rumorJson = new JSONObject();
 				
-				rumorJson.put("rumorID", rumorID);
-				rumorJson.put("gossiper", gossiperName);
-				rumorJson.put("victim",victimName);
-				json.accumulate("rumor", rumorJson);
+				rumorJson.put("Rumor ID", rumorID);
+				rumorJson.put("Gossiper", gossiperName);
+				rumorJson.put("Victim",victimName);
+				json.accumulate("Rumor", rumorJson);
 			}
 
 			file.close();

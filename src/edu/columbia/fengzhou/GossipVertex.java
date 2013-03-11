@@ -45,33 +45,34 @@ public class GossipVertex {
 	}
 	
 	public String toString() {
-	    StringBuffer tmp = new StringBuffer("Vertex(");
-	    tmp.append(name);
-	    tmp.append("), in:[");
-	    for (int i = 0; i < asListenerEdges.size(); i++) {
-	      GossipEdge e = asListenerEdges.get(i);
-	      if (i > 0)
-	        tmp.append(',');
-	      tmp.append('(');
-	      tmp.append(e.getTalker().name);
-	      tmp.append(',');
-	      tmp.append(e.getChatTime());
-	      tmp.append(')');
-	    }
-	    tmp.append("], out:[");
-	    for (int i = 0; i < asTalkerEdges.size(); i++) {
-	      GossipEdge e = asTalkerEdges.get(i);
-	      if (i > 0)
-	        tmp.append(',');
-	      tmp.append('(');
-	      tmp.append(e.getListener().name);
-	      tmp.append(',');
-	      tmp.append(e.getChatTime());
-	      tmp.append(')');
-	    }
-	    tmp.append(']');
-	    tmp.append("\n");
-	    return tmp.toString();
+//	    StringBuffer tmp = new StringBuffer("Vertex(");
+//	    tmp.append(name);
+//	    tmp.append("), in:[");
+//	    for (int i = 0; i < asListenerEdges.size(); i++) {
+//	      GossipEdge e = asListenerEdges.get(i);
+//	      if (i > 0)
+//	        tmp.append(',');
+//	      tmp.append('(');
+//	      tmp.append(e.getTalker().name);
+//	      tmp.append(',');
+//	      tmp.append(e.getChatTime());
+//	      tmp.append(')');
+//	    }
+//	    tmp.append("], out:[");
+//	    for (int i = 0; i < asTalkerEdges.size(); i++) {
+//	      GossipEdge e = asTalkerEdges.get(i);
+//	      if (i > 0)
+//	        tmp.append(',');
+//	      tmp.append('(');
+//	      tmp.append(e.getListener().name);
+//	      tmp.append(',');
+//	      tmp.append(e.getChatTime());
+//	      tmp.append(')');
+//	    }
+//	    tmp.append(']');
+//	    tmp.append("\n");
+//	    return tmp.toString();
+		return name;
 	  }
 	
 }

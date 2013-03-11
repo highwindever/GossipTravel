@@ -24,6 +24,15 @@ public class GossipGraph {
 		return this.gossipVerticies.get(name);
 	}
 	
+	public HashMap<String,GossipVertex> getVertices(){
+		return this.gossipVerticies;
+	}
+	
+	public ArrayList<GossipEdge> getEdges(){
+		return this.gossipEdges;
+	}
+	
+	
 	public boolean addEdgeAndVertex(String talkerName,String listenerName, int chatTime){
 		GossipVertex talker;
 		if(gossipVerticies.keySet().contains(talkerName)==false) {

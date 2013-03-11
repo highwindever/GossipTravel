@@ -35,6 +35,8 @@ public class GossipSolution {
 			workbook = new XSSFWorkbook(file);
 			XSSFSheet gossipChainSheet = workbook.getSheet("Inputs & Outputs");
 			Iterator<Row> rowIterator = gossipChainSheet.iterator();
+			long calTimeSum =0;
+			int count =0;
 			while(rowIterator.hasNext()) {
 				Row row = rowIterator.next();
 				Iterator<Cell> cellIterator = row.cellIterator();
@@ -58,14 +60,15 @@ public class GossipSolution {
 				Cell inputCell = row.createCell(4);
 				inputCell.setCellValue(inputJson.toString());
 				
-				long startTime = System.currentTimeMillis();
-				GossipTravelTimeCalculation gttc = new GossipTravelTimeCalculation(gg);
+				long startTime = System.nanoTime();
+				GossipTravelTimeCalculationWithPriorityQueue gttc = new GossipTravelTimeCalculationWithPriorityQueue(gg);
 				GossipVertex gossiper = gg.getVertex(gossiperName);
 				GossipVertex victim = gg.getVertex(victimName);
-				int rumorTravelTime = gttc.execute(gossiper, victim);
-				long stopTime = System.currentTimeMillis();
-			    long calculationTime = stopTime - startTime;
-			    
+				int rumorTravelTime = gttc.calculateGossipTravelTime(gossiper, victim);
+				long stopTime = System.nanoTime();
+			    long calculationTime = (stopTime - startTime)/1000000;
+			    calTimeSum += calculationTime;
+			    count++;
 			    //for test
 			    GossipVertex target = gg.getVertex(victimName);
 			    LinkedList<GossipVertex> path = gttc.getPath(target);
@@ -85,6 +88,8 @@ public class GossipSolution {
 		    workbook.write(outFile);
 		    outFile.close();
 			System.out.println(resultJson);
+			System.out.println("sum:"+calTimeSum);
+			System.out.println("avg:"+1.0*calTimeSum/count);
 		} catch (JSONException e) {			
 			e.printStackTrace();
 		}catch (FileNotFoundException e) {
