@@ -1,3 +1,9 @@
+/*
+ * The chat between a talker and a listener is modeled as a GossipEdge which
+ * contains the information of the talker, the listener and the chat time.
+ */
+
+
 package edu.columbia.fengzhou;
 
 public class GossipEdge {

@@ -1,3 +1,10 @@
+/*
+ * The GossipGraph contains the information of all the students(GossipVertex) and
+ * the chat(GossipEdge) between every pair of talker and listener.
+ * 
+ */
+
+
 package edu.columbia.fengzhou;
 
 import java.util.ArrayList;
@@ -12,6 +19,7 @@ public class GossipGraph {
 		gossipEdges = new ArrayList<GossipEdge>();
 	}
 	
+	//add a GossipVertex to the graph
 	public boolean addVertex(GossipVertex v){
 		if(gossipVerticies.values().contains(v)==false){
 			gossipVerticies.put(v.getName(),v);

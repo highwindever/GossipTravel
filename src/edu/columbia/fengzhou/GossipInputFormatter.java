@@ -1,3 +1,9 @@
+/*
+ * GossipInputFormatter is used to process the input from the xlsx
+ * file and get the required input json fromat.
+ * 
+ */
+
 package edu.columbia.fengzhou;
 
 import java.io.File;
@@ -16,6 +22,7 @@ import org.json.*;
 public class GossipInputFormatter {
 	public GossipInputFormatter(String fileName, JSONObject json){
 		try {
+			//open the required sheet of the xlsx file
 			FileInputStream file;
 			file = new FileInputStream(new File(fileName));
 			XSSFWorkbook workbook;
@@ -23,6 +30,7 @@ public class GossipInputFormatter {
 			XSSFSheet gossipChainSheet = workbook.getSheet("Inputs & Outputs");
 			Iterator<Row> rowIterator = gossipChainSheet.iterator();
 			while(rowIterator.hasNext()) {
+				//parse each row to get the input info
 				Row row = rowIterator.next();
 				Iterator<Cell> cellIterator = row.cellIterator();
 				
@@ -36,8 +44,9 @@ public class GossipInputFormatter {
 
 				Cell victimCell = cellIterator.next();
 				String victimName = victimCell.getStringCellValue();
-				JSONObject rumorJson = new JSONObject();
 				
+				//create the required input json
+				JSONObject rumorJson = new JSONObject();				
 				rumorJson.put("Rumor ID", rumorID);
 				rumorJson.put("Gossiper", gossiperName);
 				rumorJson.put("Victim",victimName);
