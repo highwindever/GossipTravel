@@ -12,8 +12,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.*; 
 import java.net.*; 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.json.JSONArray;
@@ -36,7 +36,7 @@ public class GossipServerThread extends Thread {
 		new GossipChainBuilder(fileName, gg);// build the gossip graph in a server thread
 		
 		//Test the graph
-		ArrayList<GossipEdge> testEdges = gg.getEdges();
+		List<GossipEdge> testEdges = gg.getEdges();
 		for(GossipEdge e:testEdges){
 			assertTrue(gg.getVertices().keySet().contains(e.getTalker().getName()));//the talker in an edge should be a vertex of the graph 
 			assertTrue(gg.getVertices().keySet().contains(e.getListener().getName()));//the listener in an edge should be a vertex of the graph
@@ -63,12 +63,9 @@ public class GossipServerThread extends Thread {
 	}
 
 	public void run() {
-		
 		String str;
-
 		try {
 			//Parse the input
-			
 			str = input.readLine();
 			System.out.println(str);
 			if(str.startsWith("{\"Rumor\"")==false){

@@ -17,10 +17,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -43,7 +43,7 @@ public class GossipSolution {
 			new GossipChainBuilder(fileName, gg);
 			
 			//Test the graph
-			ArrayList<GossipEdge> testEdges = gg.getEdges();
+			List<GossipEdge> testEdges = gg.getEdges();
 			for(GossipEdge e:testEdges){
 				assertTrue(gg.getVertices().keySet().contains(e.getTalker().getName()));//the talker in an edge should be a vertex of the graph 
 				assertTrue(gg.getVertices().keySet().contains(e.getListener().getName()));//the listener in an edge should be a vertex of the graph

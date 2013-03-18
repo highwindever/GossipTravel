@@ -9,10 +9,11 @@ package edu.columbia.fengzhou;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class GossipGraph {
 	private HashMap<String,GossipVertex> gossipVerticies;
-	private ArrayList<GossipEdge> gossipEdges;
+	private List<GossipEdge> gossipEdges;
 	
 	public GossipGraph(){
 		gossipVerticies = new HashMap<String,GossipVertex>();
@@ -36,11 +37,11 @@ public class GossipGraph {
 		return this.gossipVerticies;
 	}
 	
-	public ArrayList<GossipEdge> getEdges(){
+	public List<GossipEdge> getEdges(){
 		return this.gossipEdges;
 	}
 	
-	
+	//add or update the GossipVertex and GossipEdge
 	public boolean addEdgeAndVertex(String talkerName,String listenerName, int chatTime){
 		GossipVertex talker;
 		if(gossipVerticies.keySet().contains(talkerName)==false) {

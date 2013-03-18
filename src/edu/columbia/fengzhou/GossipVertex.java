@@ -7,11 +7,12 @@
 package edu.columbia.fengzhou;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GossipVertex {
 	private String name;
-	private ArrayList<GossipEdge> asListenerEdges;
-	private ArrayList<GossipEdge> asTalkerEdges;
+	private List<GossipEdge> asListenerEdges;
+	private List<GossipEdge> asTalkerEdges;
 	 
 	public GossipVertex(String name){
 		this.name = name;
@@ -23,11 +24,11 @@ public class GossipVertex {
 		return this.name;
 	}
 	
-	public ArrayList<GossipEdge> getAsListenerEdges(){
+	public List<GossipEdge> getAsListenerEdges(){
 		return this.asListenerEdges;
 	}
 	
-	public ArrayList<GossipEdge> getAsTalkerEdges(){
+	public List<GossipEdge> getAsTalkerEdges(){
 		return this.asTalkerEdges;
 	}
 	

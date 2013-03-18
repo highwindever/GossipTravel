@@ -22,7 +22,7 @@ import java.util.Set;
 public class GossipTravelTimeCalculation {
 
   private final HashMap<String,GossipVertex> vertices;
-  private final ArrayList<GossipEdge> edges;
+  private final List<GossipEdge> edges;
   private Set<GossipVertex> settledVertices;
   private PriorityQueue<GossipVertex> unSettledVertices;
   private Map<GossipVertex, GossipVertex> predecessors;
